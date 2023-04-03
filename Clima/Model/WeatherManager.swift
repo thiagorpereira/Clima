@@ -3,10 +3,10 @@
 //  Clima
 //
 //  Created by Thiago Pereira on 31/03/23.
-//  Copyright © 2023 App Brewery. All rights reserved.
 //
 
 import Foundation
+import CoreLocation
 
 protocol WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel)
@@ -21,6 +21,11 @@ struct WeatherManager {
     
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
+        perfomRequest(with: urlString)
+    }
+    
+    func fetchWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        let urlString = "\(weatherURL)&lat=\(latitude)&lon=\(longitude)"
         perfomRequest(with: urlString)
     }
     
@@ -39,8 +44,6 @@ struct WeatherManager {
                     }
                 }
             }
-        
-            // 4. Start the task
             task.resume()
         }
         

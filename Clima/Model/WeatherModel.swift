@@ -3,7 +3,6 @@
 //  Clima
 //
 //  Created by Thiago Pereira on 03/04/23.
-//  Copyright © 2023 App Brewery. All rights reserved.
 //
 
 import Foundation
